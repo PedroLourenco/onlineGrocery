@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
 
 exports.create_products = function(req, res) {
     // Remove the collection
-    Grocery.remove({}, function(err) { 
+    Grocery.remove({}, function(err) {
         if (err) {
             res.send(err);
         }
@@ -35,7 +35,6 @@ exports.list_all_products = function(req, res) {
 };
 
 exports.read_a_product = function(req, res) {
-    console.log("read_a_product")
     Grocery.find({name: req.params.productName}, function(err, product) {
         if (err) {
             res.send(err);
@@ -47,15 +46,14 @@ exports.read_a_product = function(req, res) {
 
 exports.update_a_product = function(req, res) {
     Grocery.findOne({name: req.params.productName}, function (err, product) {
-        
-        console.log(req.body.price);
+        // Check if we have the price property and proceed with the update
         if (req.body.price) {
             product.price = req.body.price;
             product.updated = Date.now();
             
             product.save(function (err) {
                 if(err) {
-                    res.status(500).send({message: "Could not update product with name " + req.params.productName});
+                    res.send(err);
                 }
 
                 res.json(product);

@@ -1,0 +1,142 @@
+{
+	"info": {
+		"name": "Online Grocery",
+		"_postman_id": "94a26d97-e375-99bb-dfad-594ac733c42b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Products List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"name\" : \"banana\",\n    \"price\" : 0.29,\n    \"stock\" : 20,\n    \"updated\" : \"2014-01-02\"\n}, {\n    \"name\" : \"melon\",\n    \"price\" : 1.01,\n    \"stock\" : 3,\n    \"updated\" : \"2014-03-28\"\n}, {\n    \"name\" : \"apple\",\n    \"price\" : 1.54,\n    \"stock\" : 22,\n    \"updated\" : \"2014-02-05\"\n}, {\n    \"name\" : \"pear\",\n    \"price\" : 0.41,\n    \"stock\" : 12,\n    \"updated\" : \"2014-04-19\"\n}, {\n    \"name\" : \"kumquat\",\n    \"price\" : 0.64,\n    \"stock\" : 32,\n    \"updated\" : \"2014-06-10\"\n}, {\n    \"name\" : \"orange\",\n    \"price\" : 2.04,\n    \"stock\" : 19,\n    \"updated\" : \"2014-05-25\"\n}, {\n    \"name\" : \"lemon\",\n    \"price\" : 1.56,\n    \"stock\" : 9,\n    \"updated\" : \"2014-12-30\"\n}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"name\" : \"banana\",\n    \"price\" : 0.29,\n    \"stock\" : 20,\n    \"updated\" : \"2014-01-02\"\n}, {\n    \"name\" : \"melon\",\n    \"price\" : 1.01,\n    \"stock\" : 3,\n    \"updated\" : \"2014-03-28\"\n}, {\n    \"name\" : \"banana\",\n    \"price\" : 0.29,\n    \"stock\" : 2000000,\n    \"updated\" : \"2014-01-02\"\n}, {\n    \"name\" : \"apple\",\n    \"price\" : 1.54,\n    \"stock\" : 22,\n    \"updated\" : \"2014-02-05\"\n}, {\n    \"name\" : \"pear\",\n    \"price\" : 0.41,\n    \"stock\" : 12,\n    \"updated\" : \"2014-04-19\"\n}, {\n    \"name\" : \"kumquat\",\n    \"price\" : 0.64,\n    \"stock\" : 32,\n    \"updated\" : \"2014-06-10\"\n}, {\n    \"name\" : \"orange\",\n    \"price\" : 2.04,\n    \"stock\" : 19,\n    \"updated\" : \"2014-05-25\"\n}, {\n    \"name\" : \"lemon\",\n    \"price\" : 1.56,\n    \"stock\" : 9,\n    \"updated\" : \"2014-12-30\"\n}]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				},
+				"description": "Retrieval service where data on all produce are returned with their prices and stock levels, ordered by their update date."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "price",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/banana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"banana"
+					]
+				},
+				"description": "A service where the prices of produce can be updated"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Product by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "price",
+							"value": "1900",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/product/banana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"product",
+						"banana"
+					]
+				},
+				"description": "A service function where produce can be searched for by name and results returned"
+			},
+			"response": []
+		}
+	]
+}
