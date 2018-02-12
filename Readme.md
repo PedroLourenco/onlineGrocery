@@ -10,18 +10,16 @@ Simple REST web services for an online grocery wholesaler using Node.js, Express
 npm install
 ```
 
-2. Run MongoDB
-
-```bash
-mongod
-```
-
-3. Run Server
+2. Run Server
 
 ```bash
 node server.js
 ```
 
-4. Testing
+3. Testing
+    Make sure the MongoDb is already runnig
 
-For testing please import the file OnlineGrocery.postman_collection.json into Postman
+```bash
+npm test
+```
+

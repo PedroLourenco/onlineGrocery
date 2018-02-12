@@ -1,5 +1,6 @@
 'use strict';
-module.exports = function(app) {
+
+module.exports = (app) => {
     var onlineGrocery = require('../controllers/onlineGroceryController');
 
     app.route('/products')

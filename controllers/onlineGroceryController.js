@@ -1,12 +1,11 @@
 'use strict'
 
-
 var mongoose = require('mongoose'),
     Grocery = mongoose.model('Grocery');
 
-exports.create_products = function(req, res) {
+exports.create_products = (req, res) => {
     // Remove the collection
-    Grocery.remove({}, function(err) {
+    Grocery.remove({}, (err) => {
         if (err) {
             res.send(err);
         }
@@ -24,8 +23,8 @@ exports.create_products = function(req, res) {
     });
 };
 
-exports.list_all_products = function(req, res) {
-    Grocery.find({}).sort({updated: 'desc'}).exec(function(err, products) {
+exports.list_all_products = (req, res) => {
+    Grocery.find({}).sort({ updated: 'desc' }).exec((err, products) => {
         if (err) {
             res.send(err);
         }
@@ -34,8 +33,8 @@ exports.list_all_products = function(req, res) {
     });
 };
 
-exports.read_a_product = function(req, res) {
-    Grocery.find({name: req.params.productName}, function(err, product) {
+exports.read_a_product = (req, res) => {
+    Grocery.find({ name: req.params.productName }, (err, product) => {
         if (err) {
             res.send(err);
         }
@@ -44,14 +43,14 @@ exports.read_a_product = function(req, res) {
     });
 };
 
-exports.update_a_product = function(req, res) {
-    Grocery.findOne({name: req.params.productName}, function (err, product) {
+exports.update_a_product = (req, res) => {
+    Grocery.findOne({ name: req.params.productName }, (err, product) => {
         // Check if we have the price property and proceed with the update
         if (req.body.price) {
             product.price = req.body.price;
             product.updated = Date.now();
-            
-            product.save(function (err) {
+
+            product.save((err) => {
                 if(err) {
                     res.send(err);
                 }
