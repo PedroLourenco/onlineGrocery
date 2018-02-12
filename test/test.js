@@ -95,7 +95,7 @@ describe('OnlineGrocery', () => {
 
     // Test the /PUT route
     describe('/PUT/product:productName', () => {
-        it('it should UPDATE a book given the id', (done) => {
+        it('it should UPDATE a product given the product name', (done) => {
             chai.request(server)
             .put('/product/banana')
             .send({ price: 1900 })
